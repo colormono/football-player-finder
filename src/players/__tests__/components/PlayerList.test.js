@@ -18,8 +18,9 @@ describe('<PlayerList />', () => {
     wrapper = shallow(<PlayerList players={players} />);
   });
 
-  it('show one TR element per item', () => {
-    expect(wrapper.find('.item').length).toEqual(players.length);
+  it('render a table with items', () => {
+    expect(wrapper.find('.table')).toBeDefined();
+    expect(wrapper.find('.item')).toHaveLength(players.length);
   });
 
   it('shows the name for each player', () => {

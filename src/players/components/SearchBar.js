@@ -3,30 +3,6 @@ import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { filterPlayers } from '../actions';
 
-const data = {
-  initialValues: {
-    name: '',
-    position: '',
-    age: 40
-  },
-  fields: {
-    ageMin: 18,
-    ageMax: 40,
-    positionOptions: [
-      'Attacking Midfield',
-      'Central Midfield',
-      'Centre-Back',
-      'Centre-Forward',
-      'Defensive Midfield',
-      'Keeper',
-      'Left Midfield',
-      'Left Wing',
-      'Left-Back',
-      'Right-Back'
-    ]
-  }
-};
-
 class SearchBar extends Component {
   renderInput = formProps => {
     return (
@@ -85,7 +61,7 @@ class SearchBar extends Component {
   };
 
   render() {
-    const { positionOptions, ageMin, ageMax } = data.fields;
+    const { positionOptions, ageMin, ageMax } = data.fieldsAttributes;
 
     return (
       <form
@@ -130,6 +106,30 @@ class SearchBar extends Component {
     );
   }
 }
+
+const data = {
+  initialValues: {
+    name: '',
+    position: '',
+    age: 40
+  },
+  fieldsAttributes: {
+    ageMin: 18,
+    ageMax: 40,
+    positionOptions: [
+      'Attacking Midfield',
+      'Central Midfield',
+      'Centre-Back',
+      'Centre-Forward',
+      'Defensive Midfield',
+      'Keeper',
+      'Left Midfield',
+      'Left Wing',
+      'Left-Back',
+      'Right-Back'
+    ]
+  }
+};
 
 const normalizeName = (value, previousValue) => {
   if (!value) {

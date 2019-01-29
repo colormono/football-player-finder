@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Link = ({ children, href }) => {
+const Link = ({ name, href }) => {
   return (
     <a href={href} className="item" target="_blank" rel="noopener noreferrer">
-      {children}
+      {name}
     </a>
   );
 };
@@ -23,36 +23,22 @@ const Footer = () => {
           <div className="three wide column">
             <h4 className="ui inverted header">Stack</h4>
             <div className="ui inverted link list">
-              <Link href="https://reactjs.org">React</Link>
-              <Link href="https://redux.js.org/">Redux</Link>
-              <Link href="https://redux-form.com">Redux-Form</Link>
-              <Link href="https://github.com/reduxjs/redux-thunk">
-                Redux-Thunk
-              </Link>
-              <Link href="https://github.com/reduxjs/reselect">Reselect</Link>
-              <Link href="https://github.com/axios/axios">Axios</Link>
+              {data[0]['links'].map(link => {
+                return (
+                  <Link key={link.name} name={link.name} href={link.href} />
+                );
+              })}
             </div>
           </div>
 
           <div className="three wide column">
             <h4 className="ui inverted header">Cheatsheets</h4>
             <div className="ui inverted link list">
-              <Link href="https://github.com/sudheerj/reactjs-interview-questions">
-                React and Redux
-              </Link>
-              <Link href="https://redux.js.org/recipes/writing-tests#async-action-creators">
-                Writing Redux tests
-              </Link>
-              <Link href="https://github.com/sapegin/jest-cheat-sheet">
-                Jest
-              </Link>
-              <Link href="https://devhints.io/enzyme">Enzyme</Link>
-              <Link href="https://github.com/maurocarrero/sinon-jest-cheatsheet">
-                Sinon
-              </Link>
-              <Link href="https://semantic-ui.com/introduction/getting-started.html">
-                UI classNames
-              </Link>
+              {data[1]['links'].map(link => {
+                return (
+                  <Link key={link.name} name={link.name} href={link.href} />
+                );
+              })}
             </div>
           </div>
 
@@ -73,5 +59,42 @@ const Footer = () => {
     </footer>
   );
 };
+
+const data = [
+  {
+    title: 'Stack',
+    links: [
+      { name: 'React', href: 'https://reactjs.org' },
+      { name: 'Redux', href: 'https://redux.js.org/' },
+      { name: 'Redux-Form', href: 'https://redux-form.com' },
+      { name: 'Redux-Thunk', href: 'https://github.com/reduxjs/redux-thunk' },
+      { name: 'Reselect', href: 'https://github.com/reduxjs/reselect' },
+      { name: 'Axios', href: 'https://github.com/axios/axios' }
+    ]
+  },
+  {
+    title: 'Cheatsheets',
+    links: [
+      {
+        name: 'React and Redux',
+        href: 'https://github.com/sudheerj/reactjs-interview-questions'
+      },
+      {
+        name: 'Writing Redux tests',
+        href: 'https://redux.js.org/recipes/writing-tests'
+      },
+      { name: 'Jest', href: 'https://github.com/sapegin/jest-cheat-sheet' },
+      { name: 'Enzyme', href: 'https://devhints.io/enzyme' },
+      {
+        name: 'Sinon',
+        href: 'https://github.com/maurocarrero/sinon-jest-cheatsheet'
+      },
+      {
+        name: 'Semantic UI',
+        href: 'https://semantic-ui.com/introduction/getting-started.html'
+      }
+    ]
+  }
+];
 
 export default Footer;

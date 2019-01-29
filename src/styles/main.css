@@ -11,13 +11,13 @@ body {
  * Layout
  */
 
-#root {
+.App {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-#root .ui.inverted.segment,
+.App .ui.inverted.segment,
 .ui.primary.inverted.segment {
   background: #016936;
 }

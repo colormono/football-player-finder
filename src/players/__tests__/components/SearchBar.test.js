@@ -24,16 +24,16 @@ describe('<SearchBar />', () => {
 
   describe('elements', () => {
     it('has two inputs, one for the name one for the age', () => {
-      expect(wrapper.find('input').length).toEqual(2);
+      expect(wrapper.find('input')).toHaveLength(2);
     });
 
     it('has a select for the positions', () => {
-      expect(wrapper.find('select').length).toEqual(1);
+      expect(wrapper.find('select')).toHaveLength(1);
     });
 
     it('has a clickeable submit div', () => {
       // Expect a div.submit with no clicks
-      expect(wrapper.find('div.submit').length).toEqual(1);
+      expect(wrapper.find('div.submit')).toHaveLength(1);
       expect(sinonSpy.called).toBe(false);
 
       // find the div.submit and simulate a click event on it

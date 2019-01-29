@@ -23,14 +23,14 @@ describe('<Layout />', () => {
   });
 
   it('shows one header component', () => {
-    expect(wrapper.find(Header).length).toEqual(1);
+    expect(wrapper.find(Header)).toHaveLength(1);
   });
 
   it('shows one footer component', () => {
-    expect(wrapper.find(Footer).length).toEqual(1);
+    expect(wrapper.find(Footer)).toHaveLength(1);
   });
 
   it('shows one players component', () => {
-    expect(wrapper.find(Players).length).toEqual(1);
+    expect(wrapper.find(Players)).toHaveLength(1);
   });
 });

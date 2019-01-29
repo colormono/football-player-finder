@@ -2,15 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import Root from './root';
-import { Header, Footer } from './main';
-import { Players } from './players';
+import { Layout } from './main';
 import './styles/main.css';
 
 ReactDOM.render(
   <Root>
-    <Header />
-    <Players />
-    <Footer />
+    <Layout />
   </Root>,
   document.getElementById('root')
 );

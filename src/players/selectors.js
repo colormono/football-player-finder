@@ -5,7 +5,7 @@ const searchFormSelector = state => state.players.currentFilters;
 // can use redux-form reducer instead to get real time filters
 //const searchFormSelector = state => state.form.searchFilters;
 
-const getFilteredList = (players, filters) => {
+export const getFilteredList = (players, filters) => {
   if (!filters || !filters.values) {
     return players;
   }

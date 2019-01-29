@@ -36,8 +36,11 @@ export const fetchPlayers = () => dispatch => {
       return players;
     })
     .catch(error => {
-      console.log("action fetchPlayers: Can't get data from the API");
-      dispatch(fetchPlayersFail(error));
+      dispatch(
+        fetchPlayersFail(
+          'Fail fetching data, please try again in a few minutes.'
+        )
+      );
       return error;
     });
 };

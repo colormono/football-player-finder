@@ -20,10 +20,7 @@ export default (state = initialState, action) => {
     case t.FETCH_SUCCESS:
       return { ...state, data: action.payload, loaded: true };
     case t.FETCH_FAIL:
-      return {
-        ...state,
-        error: 'Fail fetching data, please try again in a few minutes.'
-      };
+      return { ...state, error: action.payload, loaded: true };
     case t.FILTER:
       return { ...state, currentFilters: { values: action.payload } };
     default:

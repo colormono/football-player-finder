@@ -6,6 +6,10 @@ class PlayerList extends Component {
     players: PropTypes.array.isRequired
   };
 
+  static defaultProps = {
+    players: []
+  };
+
   renderTable() {
     return (
       <table className="ui celled selectable table">
@@ -19,12 +23,12 @@ class PlayerList extends Component {
             <th>Contract Until</th>
           </tr>
         </thead>
-        <tbody>{this.renderRow()}</tbody>
+        <tbody>{this.renderRows()}</tbody>
       </table>
     );
   }
 
-  renderRow() {
+  renderRows() {
     return this.props.players.map(player => {
       return (
         <tr key={player.name} className="item">
@@ -44,14 +48,14 @@ class PlayerList extends Component {
   }
 
   render() {
+    const { players } = this.props;
+
     return (
       <section
         className="PlayerList ui container"
         style={{ marginTop: '1em', marginBottom: '1em', flexGrow: 1 }}
       >
-        {this.props.players.length > 0
-          ? this.renderTable()
-          : this.renderNoResults()}
+        {players.length > 0 ? this.renderTable() : this.renderNoResults()}
       </section>
     );
   }
